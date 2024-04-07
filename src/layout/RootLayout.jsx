@@ -2,7 +2,7 @@ import { Outlet, useNavigation } from "react-router-dom";
 import MainNavigation from "../components/MainNavigation";
 
 export default function RootLayout() {
-  const navigation = useNavigation();
+  //const navigation = useNavigation();
   //console.log("data state: ", navigation.state);
   return (
     <>
