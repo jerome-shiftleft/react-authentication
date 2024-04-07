@@ -13,6 +13,7 @@ export async function authAction({ request }) {
     email: data.get("email"),
     password: data.get("password"),
   };
+
   const response = await fetch("http://localhost:8080/" + mode, {
     method: "POST",
     headers: {
