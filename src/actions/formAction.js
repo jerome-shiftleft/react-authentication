@@ -1,4 +1,5 @@
 import { json, redirect } from "react-router-dom";
+import { getAuthToken } from "../util/auth";
 
 export default async function formAction({ request, params }) {
   const data = await request.formData();
@@ -13,14 +14,16 @@ export default async function formAction({ request, params }) {
   let url = "http://localhost:8080/events";
 
   if (request.method.toLowerCase() === "patch") {
-    const id = params.id;    
+    const id = params.id;
     url = "http://localhost:8080/events/" + id;
   }
 
+  const token = getAuthToken();
   const response = await fetch(url, {
     method: request.method,
     headers: {
       "Content-Type": "application/json",
+      Authorization: "Bearer " + token,
     },
     body: JSON.stringify(eventData),
   });

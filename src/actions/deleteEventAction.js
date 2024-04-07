@@ -8,7 +8,7 @@ export default async function deleteEventAction({ params, request }) {
   const response = await fetch("http://localhost:8080/events/" + id, {
     method: request.method,
     headers: {
-      "Authorization": "Bearer " + token,
+      Authorization: "Bearer " + token,
     },
   });
 
