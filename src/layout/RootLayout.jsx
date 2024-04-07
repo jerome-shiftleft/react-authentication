@@ -3,7 +3,7 @@ import MainNavigation from "../components/MainNavigation";
 
 export default function RootLayout() {
   const navigation = useNavigation();
-  console.log("data state: ", navigation.state);
+  //console.log("data state: ", navigation.state);
   return (
     <>
       <MainNavigation />
