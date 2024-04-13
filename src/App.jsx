@@ -15,8 +15,8 @@ import NewsletterPage from "./pages/Newsletter";
 import newsletterAction from "./actions/newsletterAction";
 import AuthenticationPage from "./pages/Authentication";
 import { authAction } from "./actions/authAction";
-import { logoutAction } from "./actions/LogoutAction";
-import { tokenLoader } from "./util/auth";
+import logoutAction from "./actions/logoutAction";
+import { checkAuthLoader, tokenLoader } from "./util/auth";
 import "./App.css";
 
 const router = createBrowserRouter([
@@ -47,7 +47,12 @@ const router = createBrowserRouter([
                 element: <EventDetailPage />,
                 action: deleteEventAction,
               },
-              { path: "edit", element: <EditEventPage />, action: formAction },
+              {
+                path: "edit",
+                element: <EditEventPage />,
+                action: formAction,
+                loader: checkAuthLoader,
+              },
             ],
           },
 
